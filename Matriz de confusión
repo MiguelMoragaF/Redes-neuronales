@@ -1,0 +1,13 @@
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+
+y_pred = np.argmax(predictions, axis=1)
+
+cm = confusion_matrix(y_test, y_pred)
+
+plt.figure()
+sns.heatmap(cm, annot=True, fmt='d')
+plt.title("Matriz de Confusión")
+
+plt.savefig("confusion_matrix.png", dpi=300)
+plt.show()
