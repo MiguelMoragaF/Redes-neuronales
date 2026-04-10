@@ -1,0 +1,20 @@
+import numpy as np
+
+class_names = ["T-shirt", "Trouser", "Pullover", "Dress", "Coat",
+               "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
+
+predictions = model_cnn.predict(X_test_cnn)
+
+plt.figure(figsize=(10,5))
+
+for i in range(10):
+    plt.subplot(2,5,i+1)
+    plt.imshow(X_test[i], cmap='gray')
+    pred_label = class_names[np.argmax(predictions[i])]
+    true_label = class_names[y_test[i]]
+    plt.title(f"P:{pred_label}\nT:{true_label}")
+    plt.axis('off')
+
+plt.tight_layout()
+plt.savefig("predicciones.png", dpi=300)  # 👈 IMPORTANTE
+plt.show()
