@@ -1,0 +1,7 @@
+plt.figure()
+plt.plot(history_cnn.history['accuracy'])
+plt.plot(history_cnn.history['val_accuracy'])
+plt.title("Accuracy")
+
+plt.savefig("accuracy.png", dpi=300)
+plt.show()
